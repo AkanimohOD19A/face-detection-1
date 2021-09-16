@@ -35,6 +35,8 @@ for root, dirs, files in os.walk(image_dir):
             # print(label_ids)
 
             pil_image = Image.open(path).convert("L") # Library - converts to grayscale
+            size = (550, 550)
+            final_image = pil_image.resize(size, Image.ANTIALIAS) # Resize Images
             image_array = np.array(pil_image, "uint8") # Convert Image into numpy array
             faces = face_cascade.detectMultiScale(image_array, scaleFactor=1.5, minNeighbors=5)
 
