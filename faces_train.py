@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 
 # Create Directory
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 image_dir = os.path.join(BASE_DIR, "images")
 
 ##-> Training Recognizer
@@ -26,13 +26,13 @@ for root, dirs, files in os.walk(image_dir):
         if file.endswith("png") or file.endswith("jpg"):
             path = os.path.join(root, file)
             label = os.path.basename(root).replace(" ", "-").lower()
-            print(label, path)
+            # print(label, path)
 
             if not label in label_ids:
                 label_ids[label] = current_id
                 current_id += 1
             id_ = label_ids[label]
-            print(label_ids)
+            # print(label_ids)
 
             pil_image = Image.open(path).convert("L") # Library - converts to grayscale
             image_array = np.array(pil_image, "uint8") # Convert Image into numpy array
