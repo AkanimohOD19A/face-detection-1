@@ -31,9 +31,9 @@ while(True):
         # Recogniser - Using DL
         id_, conf = recognizer.predict(roi_gray)
         ##-> Confidence interval
-        if conf>=45 and conf<=85:
-            print(id_)
-            print(labels[id_])
+        if conf>=45: #and conf<=85
+            # print(id_)
+            # print(labels[id_])
             ##-> Border Tag
             font = cv2.FONT_HERSHEY_SIMPLEX
             name = labels[id_]
